@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>countdown timer</title>
+</head>
+<style>
+    body{
+        background-color: rgb(99, 181, 181);
+        text-align: center;
+        align-items: center;
+        
+        
+    }
+    #Wrapper{
+        font-size: 100px;
+        margin-top: 15%;
+        background-color: aliceblue;
+        width: 800px;
+        height: 130px;
+        margin-left: 15%;
+        border-radius: 30px;
+        
+        
+        
+    }
+    
+</style>
+<body>
+    <div class="container">
+        <div id="Wrapper">
+            <span id="hours">00</span>
+            <span>:</span>
+            <span id ="Min">00</span>
+            <span>:</span>
+            <span id="seconds">00</span>
+            <span>:</span>
+            <span id="ampm">Pm</span>
+        </div>
+    </div>
+    <script>
+
+        let ampm = document.getElementById("ampm");
+        
+        function displayTime(){
+            let dateTime = new Date();
+
+            let hr = dateTime.getHours();
+            let min = dateTime.getMinutes();
+            let sec = dateTime.getSeconds();
+
+            if(hr>12){
+                hr = hr-12
+                ampm.innerHTML = "Pm"
+
+            }
+            else{
+                ampm.innerHTML = "Am"
+            }
+
+
+        document.getElementById("hours").innerHTML = hr;
+        document.getElementById("Min").innerHTML = min;
+        document.getElementById("seconds").innerHTML = sec;
+
+        
+        }
+        setInterval(displayTime,500);
+    </script>
+</body>
+</html>
